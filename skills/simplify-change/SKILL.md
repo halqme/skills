@@ -1,6 +1,6 @@
 ---
 name: simplify-change
-description: Use this skill when implementing or reviewing a change that may contain unnecessary code, abstractions, dependencies, configuration, indirection, or generated boilerplate.
+description: Use this skill when implementing or reviewing a change that may contain unnecessary code, abstractions, dependencies, configuration, indirection, or generated boilerplate. Do not use it to remove required behavior or redesign unrelated parts of a system.
 ---
 
 # Simplify a Change

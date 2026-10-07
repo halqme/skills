@@ -15,7 +15,6 @@
 | [`simplify-change`](skills/simplify-change/) | Prefer the smallest conventional change that satisfies the requirements. |
 | [`test-design`](skills/test-design/) | Design and review tests around observable behavior and important boundaries. |
 | [`write-commit-message`](skills/write-commit-message/) | Draft commit messages that explain a change's purpose and rationale. |
-| [`writing-skills`](skills/writing-skills/) | Design, create, evaluate, or improve agent skills. |
 
 ## Install a skill
 
@@ -33,8 +32,6 @@ Each skill lives in `skills/<skill-name>/` and has a `SKILL.md` file. Some skill
 
 ## Provenance and license
 
-This collection was extracted from [Pi Kit](hhttps://github.com/halqme/pi-kit/tree/v1) and is maintained as a standalone set. The four `writing-skills/references/` guides are adapted from the Agent Skills documentation. Each identifies its source page, the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license, and its Markdown conversion. The local `best-practices.md` copy also notes that its closing “Next steps” section is not included. The `natural-japanese-writing` references list additional sources.
+This collection was extracted from [my personal Pi extensions packages](https://github.com/halqme/pi-kit/tree/v1) and is maintained as a standalone set. The `natural-japanese-writing` references list additional sources.
 
-The Agent Skills [README](https://github.com/agentskills/agentskills#license) distinguishes CC BY 4.0-licensed documentation from Apache 2.0-licensed code. Its [contribution policy](https://github.com/agentskills/agentskills/blob/main/CONTRIBUTING.md#license) assigns CC BY 4.0 to documentation, and [`docs/LICENSE`](https://github.com/agentskills/agentskills/blob/main/docs/LICENSE) contains that license. These four upstream guides are documentation in `docs/skill-creation/`, so their source text is treated as CC BY 4.0 material; redistribution must meet that license's attribution and modification-notice conditions.
-
-The original material in this repository, including the Pi Kit-derived skills, is licensed under the [Apache License 2.0](LICENSE). The four third-party guides in `skills/writing-skills/references/` are excluded from Apache 2.0 and remain separately licensed under CC BY 4.0, as noted in each file.
+The original material in this repository, including the Pi Kit-derived skills, is licensed under the [Apache License 2.0](LICENSE).

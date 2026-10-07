@@ -39,10 +39,12 @@ edit the chosen artifact, summarize a commit, or execute a repository operation.
    - **Code:** how the system implements behavior and enforces invariants.
    - **Tests:** observable behavior, boundaries, failures, recovery, and
      regression contracts.
-   - **Comments:** local, non-obvious constraints that cannot be inferred from
-     the surrounding code.
+   - **Implementation comments:** local, non-obvious constraints or rationale
+     that cannot be inferred from the surrounding code; do not narrate obvious
+     operations.
    - **Documentation or examples:** current usage, public contracts, and
-     user-facing or architectural guidance.
+     user-facing or architectural guidance. API documentation comments and
+     docstrings belong here and may describe behavior, inputs, outputs, and errors.
    - **Schema, configuration, or migration:** the authoritative data or
      compatibility contract for that concern.
    - **Commit message:** the purpose of this commit, its non-obvious rationale,

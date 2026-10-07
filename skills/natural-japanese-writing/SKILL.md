@@ -1,6 +1,6 @@
 ---
 name: natural-japanese-writing
-description: 日本語の新規作成、翻訳、要約、校正、リライトで、意味・専門性・語り口を保ちながら、用途、読者、媒体、分野、周辺文脈に合う自然な日本語へ組み直す。
+description: Use this skill when Japanese wording itself is the task—drafting, translating, summarizing, proofreading, or rewriting text for its readers and context while preserving meaning, expertise, and voice. Do not use it solely because an unrelated coding, investigation, or operational request is written in Japanese.
 ---
 
 # 自然な日本語を書くためには
@@ -53,9 +53,9 @@ description: 日本語の新規作成、翻訳、要約、校正、リライト�
 たとえば「キャッシュが切れると静かに壊れる」だけでは、何が失敗し、「静かに」が何を意味するのか分からない。
 実際の現象が分かっているなら、「キャッシュが失効すると、エラーを出さずに空の結果を返す」のように観測可能な状態まで書く。
 
-あるいは、「これは以前と同様の失敗モードです」だけでは、どのような失敗を引き起こしているのかが不明瞭である。
-これは「失敗モード」が英語の "Failure Mode" をそのまま翻訳したものであり、日本語では馴染みのない語彙だからである。
-たとえば日常会話であればFailure Mode -> 同じ失敗が起きる のように日本語でより馴染み深い語彙を採用する方が、日本語の話者にとっては読みやすいものになる。
+「これは以前と同様の失敗モードです」は、日常会話で失敗の内容が共有されていなければ、何が起きるのか伝わりにくい。
+同じ失敗の再発を指しているなら、「以前と同じ失敗が起きる」と書ける。内容が分かっている場合だけ、具体的な現象を示す。
+一方、信頼性工学の「故障モード」など、分野で定着した専門語とその区別は保つ。
 
 抽象表現を別の抽象表現へ置き換えることも当然、行ってはならない。
 
@@ -81,8 +81,8 @@ cause、drive、enable、allow、suggest、indicate、silently などを一語�
 
 ### 主客のコロケーション
 
-日本語では主体に対して当てはめられる語彙が固定されている。
-とくにLLMによる生成文では英語からの直訳的な語法やドラマチックな表現を用いることで、読み手に親しみにくさを与えやすい。
+主語・目的語と述語の組み合わせが、その分野や文脈で自然に使われているかを確認する。
+英語からの直訳的な語法や強い比喩を直す際も、因果や確信度を変えない。[対照例の「主客のコロケーション」](./references/sentences.md#主客のコロケーション)も参照する。
 
 ## 文章上・文脈上の役割を見る
 
