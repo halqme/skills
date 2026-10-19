@@ -1,6 +1,6 @@
 ---
 name: natural-japanese-writing
-description: Use this skill when Japanese wording itself is the task—drafting, translating, summarizing, proofreading, or rewriting text for its readers and context while preserving meaning, expertise, and voice. Do not use it solely because an unrelated coding, investigation, or operational request is written in Japanese.
+description: Use this skill when Japanese wording itself is the task—drafting from a brief, translating, summarizing, proofreading, or revising for readers and context. Preserve meaning, expertise, and explicit style requirements; preserve an existing writer's voice when relevant, rather than assuming every draft has one. Do not use it solely because an unrelated coding, investigation, or operational request is written in Japanese.
 ---
 
 # 自然な日本語を書くためには
@@ -10,22 +10,35 @@ description: Use this skill when Japanese wording itself is the task—drafting,
 
 ## 優先順位
 
-1. 事実、意味、限定、因果、可能性、確信度、専門上の区別を保つ。
+1. 依頼や資料が与える事実、意味、限定、因果、可能性、確信度、専門上の区別を守る。
 2. ユーザーが指定した用語、表記、文体、文体見本を守る。
-3. 既存文章がある場合、その書き手の語彙、文調、情報密度、記号、崩し方を不必要に均一化しない。
-4. 用途、読者、媒体、分野で定着している表現を尊重する。
+3. 用途、読者、媒体、分野で定着している表現を尊重する。
+4. 既存文章を直す場合、意図的な語彙、文調、情報密度、記号、崩し方を不必要に均一化しない。
 5. 読み手が意味関係を復元するために余計な推論を要する箇所を具体化する。
 
 自然さのために意味を薄めたり、説明を足して断定を強めたりしてはならない。
 
-## 文脈を決める
+## 執筆と推敲を区別する
 
-依頼文と入力文から、用途、読者、媒体、分野、既存の語り口を推定する。
-学術論文なのか、メールなのか、親しい友人とのチャットなのか、それぞれのシチュエーションに適した自然な日本語のペルソナを把握する必要がある。
+まず、依頼が新規執筆なのか、既存文章の修正なのかを確認する。翻訳や要約では、原文を持つことと、原文の文体を維持すべきことは同義ではない。
+
+- **新規執筆**：依頼と資料から、伝える内容、用途、読者、媒体、分野を定める。書き手固有の文体は、指定や見本がない限り存在すると仮定しない。用途に合った無理のない文体を選び、架空の個性を付け足さない。
+- **既存文章の修正**：原文の意味と、文脈上機能している表現を尊重する。ただし、原文にある特徴をすべて「書き手の個性」として保護しない。用途に合わない癖や意味を曖昧にする表現は、必要な範囲で直す。
+- **AI生成文の再推敲**：初稿がAIによるものなら、その癖を書き手固有の文体として扱わない。ただし、ユーザーが採用・指定した表現や、一貫して機能している文体は維持する。生成元だけを理由に表現を否定しない。
+- **翻訳・要約**：原文に含まれる情報と意味関係を基準に、依頼された言語・分量・媒体へ適合させる。要約で省く情報はあっても、残した主張の限定や因果の強さを変えない。
+
+## 文脈と文体を決める
+
+依頼文、提供資料、既存文章から、用途、読者、媒体、分野、指定された語り口を確認する。
+学術論文、技術解説、メール、友人とのチャットでは、自然に読める文体が異なる。
+
+文体の判断は、ユーザーの明示的な指定や採用した文体見本を優先し、次に用途・読者・媒体・分野の慣習を考慮する。
+過去のAI出力や今回の初稿から、ユーザー本人の文体や人格を推定しない。
+指定が十分でない場合は、文章の用途に合う標準的な語り口を選ぶ。口癖、感情、強調、対立構造を「人間らしさ」のためだけに追加しない。
 
 ## 意味の不変条件を押さえる
 
-書き換える前に、変えてはいけない内容を確認する。
+既存文章を直す場合は、変えてはいけない内容を確認する。新規執筆では、依頼と資料に含まれる事実・条件をこの基準として扱い、記載のない具体的な事実を補わない。
 
 - 誰が、何が、どの対象について述べられているか
 - 何が起きたか、何をしたか、どの状態になったか
@@ -118,6 +131,7 @@ cause、drive、enable、allow、suggest、indicate、silently などを一語�
 - 事実、限定、因果、確信度、専門上の区別が保持されている。
 - 必要な動作、対象、状態変化、条件を読み手が無理なく復元できる。
 - 抽象表現を別の抽象表現へ移しただけの箇所が残っていない。
-- その用途、読者、媒体、分野に合っている。
+- その用途、読者、媒体、分野に合っている。新規執筆では、根拠のない「書き手らしさ」を作っていない。
+- 推敲では意図的な文体を保ちつつ、元のAI生成文の癖を無条件に継承していない。
 - 固定的な文章作法へ寄せるだけの変更がない。
-- 原文にない情報や専門語を作っていない。
+- 依頼、原文、資料にない事実や専門語を作っていない。
