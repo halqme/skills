@@ -7,7 +7,7 @@
 | [`apply-correction`](skills/apply-correction/) | Revise an artifact from the authoritative current state after corrections or changed requirements. |
 | [`cognitive-rhythm-writing`](skills/cognitive-rhythm-writing/) | Improve the progression of explanatory long-form prose without manufacturing drama. |
 | [`diagnose-problem`](skills/diagnose-problem/) | Establish the evidence-backed cause of a failure, regression, or unexpected result. |
-| [`natural-japanese-writing`](skills/natural-japanese-writing/) | Write or revise Japanese while preserving meaning, expertise, voice, and context. |
+| [`natural-japanese-writing`](skills/natural-japanese-writing/) | Draft or revise natural Japanese for the reader and context, preserving meaning and intentional style. |
 | [`perform-safely`](skills/perform-safely/) | Handle destructive, external, sensitive, or hard-to-reverse actions safely. |
 | [`place-knowledges`](skills/place-knowledges/) | Decide where knowledge from a change belongs before editing artifacts. |
 | [`research-answer`](skills/research-answer/) | Research and synthesize evidence-backed answers to current or contested questions. |
