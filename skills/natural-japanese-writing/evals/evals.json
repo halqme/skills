@@ -70,6 +70,56 @@
         "It does not invent new evidence or qualifications.",
         "It avoids making a visible edit for its own sake."
       ]
+    },
+    {
+      "id": 8,
+      "prompt": "APIの動作説明を自然な日本語に直して。『API呼び出しが失敗した場合、エラーコードをログへ記録する。』。動作の具体性は維持して。",
+      "expected_output": "The condition, action and recorded item remain explicit, not replaced by an abstract claim about observability or error-handling quality.",
+      "assertions": [
+        "The text still says the error code is written to a log when an API call fails.",
+        "It does not replace the original operation with an abstract phrase such as 可観測性の強化 or 障害対応の最適化.",
+        "It adds no unsupported outcome or benefit."
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "ユーザー向け機能紹介文を一文で書いて。通知設定をオフにすると、それ以降はプッシュ通知を送らない機能です。",
+      "expected_output": "A concise sentence about switching notifications off and the subsequent absence of push notifications, rather than a generic statement of improved notification experience.",
+      "assertions": [
+        "The setting action and effect are understandable.",
+        "The output does not hide functionality behind words like 通知体験の最適化 or ユーザー体験の向上.",
+        "The output does not invent extra preferences or channels."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "技術ブログの一文を自然に直して。『変更されたファイルがあるときだけテストを実行する。』。短く保ちたい。",
+      "expected_output": "The already clear condition and action are retained instead of collapsed into an evaluative summary about efficiency.",
+      "assertions": [
+        "The condition that tests run only when files change is explicit.",
+        "The action of running tests remains identifiable.",
+        "The result is not merely テスト実行を効率化する or similar broad wording."
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "専門家向けの設計文書を校正して。『このAPIは楽観的ロックを使って競合する更新を検出する。』。内容の追加は不要。",
+      "expected_output": "The technical term optimistic locking is preserved, with no overlong paraphrase or invented implementation details.",
+      "assertions": [
+        "The term 楽観的ロック is preserved correctly.",
+        "Detection of conflicting updates remains explicit.",
+        "The model does not mechanically avoid technical terms or introduce database version fields without evidence."
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "『運用面の改善を進める』という短い文章が曖昧なので具体化して。改善内容について、それ以上の情報はありません。",
+      "expected_output": "The agent identifies the absence of specific actions, and does not invent logging, monitoring, staffing, or other interventions just to sound concrete.",
+      "assertions": [
+        "No specific operational measure is invented.",
+        "The output makes clear that further specifics cannot be grounded in the supplied text.",
+        "The response does not merely substitute another opaque abstraction for 改善."
+      ]
     }
   ]
 }
