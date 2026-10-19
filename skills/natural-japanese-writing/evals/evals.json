@@ -120,6 +120,58 @@
         "The output makes clear that further specifics cannot be grounded in the supplied text.",
         "The response does not merely substitute another opaque abstraction for 改善."
       ]
+    },
+    {
+      "id": 13,
+      "prompt": "卒論の考察を2〜3文で新規に書いて。実験4でGPT-5.4は外部から与えた方向列に対し128試行すべてで正答。実験3で同モデルのd′は盤面条件0.10、方向列条件2.33。これらだけで盤面から空間関係を抽出できたとはいえない。自然な日本語にして。",
+      "expected_output": "The passage names experiment 4, its 128/128 result, experiment 3, its two d′ values, and the limited conclusion directly. It does not replace observations with 『整合』『改善』 or merge experiments into one unspecified change.",
+      "assertions": [
+        "GPT-5.4's 128/128 responses are attributed to experiment 4 with an externally supplied direction sequence.",
+        "Experiment 3's d′=0.10 in the board condition and d′=2.33 in the direction-list condition are explicitly distinguished.",
+        "The passage does not refer to both experiments as 「この改善」 or as a single measure.",
+        "It does not use 「整合」 in place of the observed result or claim the model itself was consistent with a hypothesis.",
+        "It does not infer the model extracted board spatial relationships or make a stronger causal claim."
+      ]
+    },
+    {
+      "id": 14,
+      "prompt": "結果欄を新規に書いて。条件Aの平均反応時間は420ミリ秒、条件Bは510ミリ秒だった。統計検定はまだしていない。日本語の論文向けに。",
+      "expected_output": "An observation statement naming each condition and its mean reaction time. No generic hedge like 傾向が示唆された instead of the data or untested significance claim.",
+      "assertions": [
+        "Condition A 420 milliseconds and condition B 510 milliseconds are both explicit.",
+        "The output does not use an unspecified 「傾向」「変化」「効果」 to replace the comparison.",
+        "The output makes no invented claim of significance or causation."
+      ]
+    },
+    {
+      "id": 15,
+      "prompt": "次の段落を自然な文章に直して。『実験Aではエラー率が15%から8%に減少した。実験Bでは平均応答時間が300msから200msになった。この改善は運用に役立つ。』運用上の効果は実験していない。",
+      "expected_output": "A passage that distinguishes error rate and response time values by experiment, while removing the unspecified 『この改善』 and unsupported operational benefit.",
+      "assertions": [
+        "Experiment A's error-rate reduction from 15% to 8% remains separate from experiment B's response-time change from 300ms to 200ms.",
+        "The rewrite does not refer to both as a singular unqualified 「この改善」.",
+        "It omits unsupported claims of operational benefit."
+      ]
+    },
+    {
+      "id": 16,
+      "prompt": "論文の結果と予測の一致について1文で説明して。事前仮説は『条件Bの正答率が条件Aより高い』、観測値はAが60%、Bが75%。専門家向けなので「整合」という用語を使うなら何と何が整合するのか分かるように。",
+      "expected_output": "An explicit observation-and-prediction relation, with proper semantic subject and no blanket ban on the technical inferential use of 整合.",
+      "assertions": [
+        "Both observed correctness rates 60% and 75% are clear.",
+        "The text relates B > A to the prior prediction without saying a model itself was 「整合した」.",
+        "It does not unnecessarily ban a clearly grounded 「予測と整合する」 formulation."
+      ]
+    },
+    {
+      "id": 17,
+      "prompt": "実験の結果欄を書く。四択条件では正答が90/100、自由出力条件では40/100。文章を短くまとめて。抽象語を避ける指示はしていません。",
+      "expected_output": "A simple factual comparison of the 90/100 and 40/100 correct responses by output condition, without fabricating an unspecified tendency, improvement, or explanatory capability.",
+      "assertions": [
+        "90/100 and 40/100 are correctly attached to the four-choice and free-output conditions.",
+        "The text prioritizes these observations over generic words like 『傾向』『改善』『能力の発現』.",
+        "The response does not infer internal abilities from correct-answer counts alone."
+      ]
     }
   ]
 }
