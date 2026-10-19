@@ -1,0 +1,75 @@
+{
+  "skill_name": "natural-japanese-writing",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "新規に研究紹介文を書いてください。LLMがオセロの合法手を出力できるかを評価する研究で、四択条件と自由出力条件を比較します。専門外の大学生が読む研究室紹介ページ向けです。過去の文章や文体見本はありません。",
+      "expected_output": "A clear Japanese research introduction suited to university students, using only the supplied research design without inventing results, personal experiences, or a distinctive author persona.",
+      "assertions": [
+        "The text explains the four-choice and free-generation conditions in accessible Japanese.",
+        "It does not invent outcomes, study size, or the author's personal motivation.",
+        "It chooses an appropriate register without assuming a pre-existing writer's voice or adding theatrical contrasts."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "ゼロから日本語で短い社内連絡を書いて。内容は「レビューを依頼する前に、変更に関連するテストを実行してください」。特定の話者の文体は指定していません。",
+      "expected_output": "A concise, ordinary internal instruction with an appropriate politeness level and no fabricated first-person account or unnecessary rhetorical build-up.",
+      "assertions": [
+        "The requested action and its timing are preserved.",
+        "The text does not invent the writer's emotions, experiences, or habitual phrasing.",
+        "It does not add an unnecessary contrast or opening flourish."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "この段落はAIが生成した下書きです。運用マニュアル向けに自然に直してください。実際の仕様は、API失敗時にエラーコードをログへ記録することだけです。「重要なのは設定の簡素化ではなく次世代の開発体験です。この仕組みは圧倒的な可観測性を実現します。」",
+      "expected_output": "A neutral operational description stating that API failures cause error codes to be logged, without treating AI-draft marketing flourishes as the author's voice.",
+      "assertions": [
+        "The revised text states the actual logging behavior.",
+        "It removes unsupported claims about development experience or observability.",
+        "It does not protect rhetorical habits of an AI draft merely because they appear in the original."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "AIが書いた告知文を直して。冒頭の「やっと出せた！」は自分で選んで残したい表現です。後半だけ誇張を減らして。「やっと出せた！ 今回の更新はアプリの未来を再定義する革命です。検索画面に履歴表示を追加しました。」",
+      "expected_output": "A natural short announcement that preserves the user-endorsed opening and the factual feature addition while removing unsupported hyperbole.",
+      "assertions": [
+        "The phrase 「やっと出せた！」 is preserved.",
+        "The added search-history display feature remains explicit.",
+        "The fact the draft was AI-generated does not override the user's explicit style preference."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "この人間が書いたSNS投稿を、意味を変えず必要なところだけ直して。『新しいやつ、かなり良い……ていうか今まで欲しかったのこれ！』。堅い文体への変更は求めていません。",
+      "expected_output": "The informal tone, punctuation, and spontaneous phrasing are preserved when already natural in the intended medium; no formalization is forced.",
+      "assertions": [
+        "The output is not normalized into formal explanatory prose.",
+        "Informal features are not removed merely for being informal.",
+        "Unnecessary rewriting is avoided if the original already works."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "次の研究の結果説明を、一般読者向けに2文以内で要約して。『観察された正答率の差は、入力形式が成績に影響する可能性を示唆する。ただし、この観察だけではモデル内部の空間表現の有無を断定できない。』",
+      "expected_output": "A concise summary that retains the suggestion and limitation without strengthening either into causality or proof.",
+      "assertions": [
+        "The impact of input format is framed as a possibility or suggestion, not a proven cause.",
+        "The result is not presented as proof that spatial representations exist or do not exist.",
+        "The summary may omit detail but preserves the epistemic strength of retained claims."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "次の学術文の日本語だけ見て、必要なら最小限の修正をして。『この結果は仮説を支持する。』。学術論文としての通常の用法です。",
+      "expected_output": "The original wording is retained because it is idiomatic in an academic register; the model does not mechanically replace inanimate subjects or specialized phrasing.",
+      "assertions": [
+        "The text does not rewrite 「この結果は仮説を支持する」 merely because of an inanimate subject.",
+        "It does not invent new evidence or qualifications.",
+        "It avoids making a visible edit for its own sake."
+      ]
+    }
+  ]
+}
