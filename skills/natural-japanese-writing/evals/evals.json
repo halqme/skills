@@ -4,173 +4,243 @@
     {
       "id": 1,
       "prompt": "新規に研究紹介文を書いてください。LLMがオセロの合法手を出力できるかを評価する研究で、四択条件と自由出力条件を比較します。専門外の大学生が読む研究室紹介ページ向けです。過去の文章や文体見本はありません。",
-      "expected_output": "A clear Japanese research introduction suited to university students, using only the supplied research design without inventing results, personal experiences, or a distinctive author persona.",
+      "expected_output": "この研究では、LLMがオセロのルールに従って合法な手を出力できるかを調べます。四つの候補から手を選ぶ場合と、候補を示さず自由に手を答える場合を比べ、正しく手を出力できるかを評価します。",
       "assertions": [
-        "The text explains the four-choice and free-generation conditions in accessible Japanese.",
-        "It does not invent outcomes, study size, or the author's personal motivation.",
-        "It chooses an appropriate register without assuming a pre-existing writer's voice or adding theatrical contrasts."
+        "四択条件と自由出力条件を、専門外の大学生にも分かる日本語で説明している。",
+        "研究結果、試行数、筆者個人の研究動機を捏造していない。",
+        "既存の書き手の文体を勝手に想定せず、過剰な対比を付け加えず、用途に合った文体を選んでいる。"
       ]
     },
     {
       "id": 2,
       "prompt": "ゼロから日本語で短い社内連絡を書いて。内容は「レビューを依頼する前に、変更に関連するテストを実行してください」。特定の話者の文体は指定していません。",
-      "expected_output": "A concise, ordinary internal instruction with an appropriate politeness level and no fabricated first-person account or unnecessary rhetorical build-up.",
+      "expected_output": "レビューを依頼する前に、変更に関連するテストを実行してください。",
       "assertions": [
-        "The requested action and its timing are preserved.",
-        "The text does not invent the writer's emotions, experiences, or habitual phrasing.",
-        "It does not add an unnecessary contrast or opening flourish."
+        "レビュー依頼前に関連テストを実行するという行動と順序が保たれている。",
+        "書き手の感情、経験、口癖を捏造していない。",
+        "不要な対比や大げさな書き出しを追加していない。"
       ]
     },
     {
       "id": 3,
       "prompt": "この段落はAIが生成した下書きです。運用マニュアル向けに自然に直してください。実際の仕様は、API失敗時にエラーコードをログへ記録することだけです。「重要なのは設定の簡素化ではなく次世代の開発体験です。この仕組みは圧倒的な可観測性を実現します。」",
-      "expected_output": "A neutral operational description stating that API failures cause error codes to be logged, without treating AI-draft marketing flourishes as the author's voice.",
+      "expected_output": "API呼び出しが失敗した場合は、エラーコードをログに記録します。",
       "assertions": [
-        "The revised text states the actual logging behavior.",
-        "It removes unsupported claims about development experience or observability.",
-        "It does not protect rhetorical habits of an AI draft merely because they appear in the original."
+        "API失敗時にエラーコードがログへ記録されることを明示している。",
+        "開発体験や可観測性について根拠のない効果を主張していない。",
+        "AI生成の原文に含まれていた修辞表現を、書き手固有の文体として無条件に保護していない。"
       ]
     },
     {
       "id": 4,
       "prompt": "AIが書いた告知文を直して。冒頭の「やっと出せた！」は自分で選んで残したい表現です。後半だけ誇張を減らして。「やっと出せた！ 今回の更新はアプリの未来を再定義する革命です。検索画面に履歴表示を追加しました。」",
-      "expected_output": "A natural short announcement that preserves the user-endorsed opening and the factual feature addition while removing unsupported hyperbole.",
+      "expected_output": "やっと出せた！ 検索画面に履歴を表示できるようになりました。",
       "assertions": [
-        "The phrase 「やっと出せた！」 is preserved.",
-        "The added search-history display feature remains explicit.",
-        "The fact the draft was AI-generated does not override the user's explicit style preference."
+        "「やっと出せた！」を維持している。",
+        "検索画面に履歴表示を追加した事実を明示している。",
+        "AI生成の下書きであることを理由に、ユーザーが明示した文体上の希望を無視していない。"
       ]
     },
     {
       "id": 5,
       "prompt": "この人間が書いたSNS投稿を、意味を変えず必要なところだけ直して。『新しいやつ、かなり良い……ていうか今まで欲しかったのこれ！』。堅い文体への変更は求めていません。",
-      "expected_output": "The informal tone, punctuation, and spontaneous phrasing are preserved when already natural in the intended medium; no formalization is forced.",
+      "expected_output": "新しいやつ、かなり良い……ていうか今まで欲しかったのこれ！",
       "assertions": [
-        "The output is not normalized into formal explanatory prose.",
-        "Informal features are not removed merely for being informal.",
-        "Unnecessary rewriting is avoided if the original already works."
+        "堅い説明文へ一律に書き換えていない。",
+        "くだけた表現であるという理由だけで、自然な特徴を削っていない。",
+        "原文が十分機能している場合は不要な修正を避けている。"
       ]
     },
     {
       "id": 6,
       "prompt": "次の研究の結果説明を、一般読者向けに2文以内で要約して。『観察された正答率の差は、入力形式が成績に影響する可能性を示唆する。ただし、この観察だけではモデル内部の空間表現の有無を断定できない。』",
-      "expected_output": "A concise summary that retains the suggestion and limitation without strengthening either into causality or proof.",
+      "expected_output": "入力形式によって正答率が変わる可能性があります。ただし、観察された差だけでは、モデル内部に空間表現があるかどうかは判断できません。",
       "assertions": [
-        "The impact of input format is framed as a possibility or suggestion, not a proven cause.",
-        "The result is not presented as proof that spatial representations exist or do not exist.",
-        "The summary may omit detail but preserves the epistemic strength of retained claims."
+        "入力形式の影響を、確定した原因ではなく可能性として表現している。",
+        "モデル内部に空間表現が存在する、または存在しないと証明されたかのように書いていない。",
+        "細部を省略しても、残した主張の確信度を維持している。"
       ]
     },
     {
       "id": 7,
       "prompt": "次の学術文の日本語だけ見て、必要なら最小限の修正をして。『この結果は仮説を支持する。』。学術論文としての通常の用法です。",
-      "expected_output": "The original wording is retained because it is idiomatic in an academic register; the model does not mechanically replace inanimate subjects or specialized phrasing.",
+      "expected_output": "この結果は仮説を支持する。",
       "assertions": [
-        "The text does not rewrite 「この結果は仮説を支持する」 merely because of an inanimate subject.",
-        "It does not invent new evidence or qualifications.",
-        "It avoids making a visible edit for its own sake."
+        "無生物主語であることだけを理由に「この結果は仮説を支持する」を修正していない。",
+        "新しい証拠や限定条件を捏造していない。",
+        "修正する必要がない箇所を無理に変更していない。"
       ]
     },
     {
       "id": 8,
       "prompt": "APIの動作説明を自然な日本語に直して。『API呼び出しが失敗した場合、エラーコードをログへ記録する。』。動作の具体性は維持して。",
-      "expected_output": "The condition, action and recorded item remain explicit, not replaced by an abstract claim about observability or error-handling quality.",
+      "expected_output": "API呼び出しが失敗した場合は、エラーコードをログに記録する。",
       "assertions": [
-        "The text still says the error code is written to a log when an API call fails.",
-        "It does not replace the original operation with an abstract phrase such as 可観測性の強化 or 障害対応の最適化.",
-        "It adds no unsupported outcome or benefit."
+        "API呼び出しが失敗したとき、エラーコードをログへ記録することを維持している。",
+        "「可観測性の強化」「障害対応の最適化」など、元の操作が分からなくなる抽象表現へ置き換えていない。",
+        "根拠のない効果や利点を付け加えていない。"
       ]
     },
     {
       "id": 9,
       "prompt": "ユーザー向け機能紹介文を一文で書いて。通知設定をオフにすると、それ以降はプッシュ通知を送らない機能です。",
-      "expected_output": "A concise sentence about switching notifications off and the subsequent absence of push notifications, rather than a generic statement of improved notification experience.",
+      "expected_output": "通知設定をオフにすると、それ以降はプッシュ通知が届かなくなります。",
       "assertions": [
-        "The setting action and effect are understandable.",
-        "The output does not hide functionality behind words like 通知体験の最適化 or ユーザー体験の向上.",
-        "The output does not invent extra preferences or channels."
+        "通知をオフにする操作と、その後にプッシュ通知が届かなくなる結果を理解できる。",
+        "「通知体験の最適化」「ユーザー体験の向上」などの語で具体的な機能を隠していない。",
+        "指定されていない通知経路や設定項目を追加していない。"
       ]
     },
     {
       "id": 10,
       "prompt": "技術ブログの一文を自然に直して。『変更されたファイルがあるときだけテストを実行する。』。短く保ちたい。",
-      "expected_output": "The already clear condition and action are retained instead of collapsed into an evaluative summary about efficiency.",
+      "expected_output": "変更されたファイルがあるときだけテストを実行する。",
       "assertions": [
-        "The condition that tests run only when files change is explicit.",
-        "The action of running tests remains identifiable.",
-        "The result is not merely テスト実行を効率化する or similar broad wording."
+        "ファイルに変更がある場合に限ってテストを実行する条件が明確である。",
+        "テストを実行するという動作が分かる。",
+        "「テスト実行を効率化する」のような抽象的な説明だけにしていない。"
       ]
     },
     {
       "id": 11,
       "prompt": "専門家向けの設計文書を校正して。『このAPIは楽観的ロックを使って競合する更新を検出する。』。内容の追加は不要。",
-      "expected_output": "The technical term optimistic locking is preserved, with no overlong paraphrase or invented implementation details.",
+      "expected_output": "このAPIは楽観的ロックを使って競合する更新を検出する。",
       "assertions": [
-        "The term 楽観的ロック is preserved correctly.",
-        "Detection of conflicting updates remains explicit.",
-        "The model does not mechanically avoid technical terms or introduce database version fields without evidence."
+        "「楽観的ロック」という用語を正しく維持している。",
+        "競合する更新を検出することが明確である。",
+        "専門語を機械的に避けたり、根拠なくデータベースのバージョン列などを追加したりしていない。"
       ]
     },
     {
       "id": 12,
       "prompt": "『運用面の改善を進める』という短い文章が曖昧なので具体化して。改善内容について、それ以上の情報はありません。",
-      "expected_output": "The agent identifies the absence of specific actions, and does not invent logging, monitoring, staffing, or other interventions just to sound concrete.",
+      "expected_output": "「運用面の改善」だけでは、何をどのように変えるのかが分かりません。改善する対象と、実施する作業を教えてください。",
       "assertions": [
-        "No specific operational measure is invented.",
-        "The output makes clear that further specifics cannot be grounded in the supplied text.",
-        "The response does not merely substitute another opaque abstraction for 改善."
+        "具体的な運用施策を捏造していない。",
+        "与えられた文章だけでは改善内容を特定できないことを明確にしている。",
+        "「改善」を別の不明瞭な抽象語に置き換えるだけで済ませていない。"
       ]
     },
     {
       "id": 13,
       "prompt": "卒論の考察を2〜3文で新規に書いて。実験4でGPT-5.4は外部から与えた方向列に対し128試行すべてで正答。実験3で同モデルのd′は盤面条件0.10、方向列条件2.33。これらだけで盤面から空間関係を抽出できたとはいえない。自然な日本語にして。",
-      "expected_output": "The passage names experiment 4, its 128/128 result, experiment 3, its two d′ values, and the limited conclusion directly. It does not replace observations with 『整合』『改善』 or merge experiments into one unspecified change.",
+      "expected_output": "実験4では、GPT-5.4は外部から与えられた方向列に対し、128試行すべてで正答した。実験3では、同モデルの弁別力（d′）は盤面条件で0.10、方向列条件で2.33だった。ただし、これらの結果だけでは、モデルが盤面から空間関係を抽出できたとはいえない。",
       "assertions": [
-        "GPT-5.4's 128/128 responses are attributed to experiment 4 with an externally supplied direction sequence.",
-        "Experiment 3's d′=0.10 in the board condition and d′=2.33 in the direction-list condition are explicitly distinguished.",
-        "The passage does not refer to both experiments as 「この改善」 or as a single measure.",
-        "It does not use 「整合」 in place of the observed result or claim the model itself was consistent with a hypothesis.",
-        "It does not infer the model extracted board spatial relationships or make a stronger causal claim."
+        "実験4におけるGPT-5.4の128試行すべての正答が、外部から与えた方向列に対する結果だと分かる。",
+        "実験3における盤面条件のd′=0.10と方向列条件のd′=2.33を区別している。",
+        "二つの実験を「この改善」などの一つの指標のような表現でまとめていない。",
+        "「整合」を観測結果の代わりに使ったり、モデル自体が仮説に整合したと書いたりしていない。",
+        "盤面からの空間関係の抽出能力や因果関係について、証拠を超えて断定していない。"
       ]
     },
     {
       "id": 14,
       "prompt": "結果欄を新規に書いて。条件Aの平均反応時間は420ミリ秒、条件Bは510ミリ秒だった。統計検定はまだしていない。日本語の論文向けに。",
-      "expected_output": "An observation statement naming each condition and its mean reaction time. No generic hedge like 傾向が示唆された instead of the data or untested significance claim.",
+      "expected_output": "平均反応時間は、条件Aで420ミリ秒、条件Bで510ミリ秒だった。",
       "assertions": [
-        "Condition A 420 milliseconds and condition B 510 milliseconds are both explicit.",
-        "The output does not use an unspecified 「傾向」「変化」「効果」 to replace the comparison.",
-        "The output makes no invented claim of significance or causation."
+        "条件Aの420ミリ秒と条件Bの510ミリ秒を明示している。",
+        "「傾向」「変化」「効果」などの曖昧な言葉で比較結果を代用していない。",
+        "統計的有意性や因果関係を捏造していない。"
       ]
     },
     {
       "id": 15,
       "prompt": "次の段落を自然な文章に直して。『実験Aではエラー率が15%から8%に減少した。実験Bでは平均応答時間が300msから200msになった。この改善は運用に役立つ。』運用上の効果は実験していない。",
-      "expected_output": "A passage that distinguishes error rate and response time values by experiment, while removing the unspecified 『この改善』 and unsupported operational benefit.",
+      "expected_output": "実験Aではエラー率が15%から8%に減少した。実験Bでは平均応答時間が300msから200msに短縮された。",
       "assertions": [
-        "Experiment A's error-rate reduction from 15% to 8% remains separate from experiment B's response-time change from 300ms to 200ms.",
-        "The rewrite does not refer to both as a singular unqualified 「この改善」.",
-        "It omits unsupported claims of operational benefit."
+        "実験Aのエラー率15%から8%への低下と、実験Bの応答時間300msから200msへの短縮を別々に記述している。",
+        "両方の結果を単一の「この改善」として参照していない。",
+        "運用上の効果を検証したかのような主張を含めていない。"
       ]
     },
     {
       "id": 16,
       "prompt": "論文の結果と予測の一致について1文で説明して。事前仮説は『条件Bの正答率が条件Aより高い』、観測値はAが60%、Bが75%。専門家向けなので「整合」という用語を使うなら何と何が整合するのか分かるように。",
-      "expected_output": "An explicit observation-and-prediction relation, with proper semantic subject and no blanket ban on the technical inferential use of 整合.",
+      "expected_output": "条件Aの正答率は60%、条件Bは75%であり、条件Bが条件Aを上回るという事前の予測と整合していた。",
       "assertions": [
-        "Both observed correctness rates 60% and 75% are clear.",
-        "The text relates B > A to the prior prediction without saying a model itself was 「整合した」.",
-        "It does not unnecessarily ban a clearly grounded 「予測と整合する」 formulation."
+        "観測された正答率60%と75%を正確に示している。",
+        "条件BがAより高いという予測と観測の関係を述べ、モデルそのものが「整合した」とは書いていない。",
+        "根拠が明確な「予測と整合する」という表現まで不必要に禁止していない。"
       ]
     },
     {
       "id": 17,
       "prompt": "実験の結果欄を書く。四択条件では正答が90/100、自由出力条件では40/100。文章を短くまとめて。抽象語を避ける指示はしていません。",
-      "expected_output": "A simple factual comparison of the 90/100 and 40/100 correct responses by output condition, without fabricating an unspecified tendency, improvement, or explanatory capability.",
+      "expected_output": "四択条件では100試行中90試行で正答したのに対し、自由出力条件では100試行中40試行で正答した。",
       "assertions": [
-        "90/100 and 40/100 are correctly attached to the four-choice and free-output conditions.",
-        "The text prioritizes these observations over generic words like 『傾向』『改善』『能力の発現』.",
-        "The response does not infer internal abilities from correct-answer counts alone."
+        "四択条件の90/100と自由出力条件の40/100を正しく対応付けている。",
+        "「傾向」「改善」「能力の発現」などの一般的な評価語よりも、観測値を優先している。",
+        "正答数だけからモデル内部の能力を断定していない。"
+      ]
+    },
+    {
+      "id": 18,
+      "prompt": "障害報告書に載せる文章を一文で書いて。監視ログには午前2時14分から接続失敗が連続して記録されている。文学的な表現は不要です。",
+      "expected_output": "午前2時14分以降、監視ログには接続失敗が連続して記録された。",
+      "assertions": [
+        "午前2時14分という時点と、接続失敗が監視ログに連続して記録された事実を示している。",
+        "ログや失敗を擬人化して、何が起きたのかを不明瞭にしていない。",
+        "障害の原因、復旧措置、影響範囲を捏造していない。"
+      ]
+    },
+    {
+      "id": 19,
+      "prompt": "以下の文章を写実的な短い描写に直して。『廊下の冷たさが赤く鳴って、窓際にこぼれた。』。実際の情景は、冬の朝で廊下は寒く、窓際に赤い朝日が差している、というものです。",
+      "expected_output": "冬の朝、廊下は冷え切っていた。窓際には赤い朝日が差していた。",
+      "assertions": [
+        "廊下が冷たいことと、窓際に赤い朝日が差していることを維持している。",
+        "文学的に見えるという理由だけで、音・色・温度の関係が不明な描写を残していない。",
+        "新しい情景、動作、感情を捏造していない。"
+      ]
+    },
+    {
+      "id": 20,
+      "prompt": "運用手順書の見出し『変更は責任で守る』を読み手が実際の作業を分かるように直して。内容は、本番への変更を行った担当者と変更を承認した担当者をそれぞれ記録することです。",
+      "expected_output": "本番環境への変更時は、変更担当者と承認担当者を記録する。",
+      "assertions": [
+        "変更担当者と承認担当者をそれぞれ記録することを明示している。",
+        "曖昧な標語を別の曖昧な標語に言い換えていない。",
+        "根拠のない追加の承認手順やデプロイ手順を創作していない。"
+      ]
+    },
+    {
+      "id": 21,
+      "prompt": "社内ガイドの『新人の出社に厚みを持たせる』を自然な日本語に直して。入社後1か月は週4日出社し、その後は各自が出社頻度を決めます。",
+      "expected_output": "入社後1か月は週4日出社し、その後の出社頻度は各自で決める。",
+      "assertions": [
+        "入社後1か月、週4日出社、その後は各自が頻度を決めるという条件を保っている。",
+        "不明瞭な動詞と目的語の組み合わせを、別の抽象表現で隠さず修正している。",
+        "出社方針の理由や追加の義務を捏造していない。"
+      ]
+    },
+    {
+      "id": 22,
+      "prompt": "小説の一文を校正して。『夜の駅は、空っぽの水槽のように静かだった。』。終電後の駅を主人公が感じる場面で、この比喩は意図して使っています。意味を変えないで。",
+      "expected_output": "夜の駅は、空っぽの水槽のように静かだった。",
+      "assertions": [
+        "「空っぽの水槽」の比喩を、字義どおりではないという理由だけで削っていない。",
+        "与えられていない出来事や感覚描写を付け加えていない。",
+        "ユーザーが意図した小説の文体を尊重している。"
+      ]
+    },
+    {
+      "id": 23,
+      "prompt": "性能改善チームのガイドの見出し『計測してから直す』を自然な日本語にして。修正前に性能を測定するという手順は本文に説明済み。見出しの短さも維持したい。",
+      "expected_output": "計測してから直す",
+      "assertions": [
+        "修正する前に計測するという順序が分かる。",
+        "必要のない説明を足さず、見出しの簡潔さを保っている。",
+        "箴言や標語のような短い表現を一律に禁止していない。"
+      ]
+    },
+    {
+      "id": 24,
+      "prompt": "次の短文を誰でも分かるように具体化して。『境界を決めて成果を守る。』。ほかに文脈はありません。",
+      "expected_output": "「境界」が何を指し、「成果」をどう定義しているのかが分からないため、この文章だけでは具体的に書き換えられません。何の境界を決め、どのような方法で成果を守るのか、補足が必要です。",
+      "assertions": [
+        "対象と操作を元の短文だけでは一意に復元できないことを認識している。",
+        "技術・組織・契約上の具体的な設定や手順を勝手に補っていない。",
+        "別の曖昧な標語を提示するだけで、具体化できたことにしていない。"
       ]
     }
   ]
