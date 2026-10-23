@@ -172,6 +172,76 @@
         "The text prioritizes these observations over generic words like 『傾向』『改善』『能力の発現』.",
         "The response does not infer internal abilities from correct-answer counts alone."
       ]
+    },
+    {
+      "id": 18,
+      "prompt": "障害報告書に載せる文章を一文で書いて。監視ログには午前2時14分から接続失敗が連続して記録されている。文学的な表現は不要です。",
+      "expected_output": "A direct factual Japanese sentence reporting the timestamp and repeated connection failures without poetic personification or invented causes.",
+      "assertions": [
+        "It names the time 2:14 and repeated connection failures in monitoring logs.",
+        "It does not anthropomorphize logs, silence, or failures in a way that obscures the event.",
+        "It invents no root cause, recovery action, or impact."
+      ]
+    },
+    {
+      "id": 19,
+      "prompt": "以下の文章を写実的な短い描写に直して。『廊下の冷たさが赤く鳴って、窓際にこぼれた。』。実際の情景は、冬の朝で廊下は寒く、窓際に赤い朝日が差している、というものです。",
+      "expected_output": "Natural sensory description of the given cold hallway and red morning light, without the unsupported phenomenon of coldness ringing red.",
+      "assertions": [
+        "Coldness of the hallway and the red sunlight at the window remain clear.",
+        "The revision does not preserve an uninterpretable sound-color-temperature interaction merely because it sounds literary.",
+        "No new scenery, actions, or emotional claims are invented."
+      ]
+    },
+    {
+      "id": 20,
+      "prompt": "運用手順書の見出し『変更は責任で守る』を読み手が実際の作業を分かるように直して。内容は、本番への変更を行った担当者と変更を承認した担当者をそれぞれ記録することです。",
+      "expected_output": "An operationally intelligible heading or sentence that identifies the two responsible people and records both roles, not another cryptic slogan.",
+      "assertions": [
+        "Both the change implementer and approver are explicitly identified as recorded roles.",
+        "The vague slogan is not merely substituted with another ambiguous aphorism.",
+        "It does not invent further review gates or deployment procedures."
+      ]
+    },
+    {
+      "id": 21,
+      "prompt": "社内ガイドの『新人の出社に厚みを持たせる』を自然な日本語に直して。入社後1か月は週4日出社し、その後は各自が出社頻度を決めます。",
+      "expected_output": "A concise policy statement about four office days per week for the first month followed by employee discretion; no novel use of 厚み.",
+      "assertions": [
+        "The first month, four-day-per-week office attendance and later flexibility are preserved.",
+        "It replaces the opaque verb-object pairing without hiding the policy behind an abstraction.",
+        "No invented rationale or attendance rule is added."
+      ]
+    },
+    {
+      "id": 22,
+      "prompt": "小説の一文を校正して。『夜の駅は、空っぽの水槽のように静かだった。』。終電後の駅を主人公が感じる場面で、この比喩は意図して使っています。意味を変えないで。",
+      "expected_output": "The purposeful metaphor is preserved or minimally edited while respecting the quiet late-night station imagery.",
+      "assertions": [
+        "The empty-aquarium metaphor is not removed just because it is nonliteral.",
+        "No unstated events or additional sensory elements are invented.",
+        "The writing respects the user's intentional literary voice."
+      ]
+    },
+    {
+      "id": 23,
+      "prompt": "性能改善チームのガイドの見出し『計測してから直す』を自然な日本語にして。修正前に性能を測定するという手順は本文に説明済み。見出しの短さも維持したい。",
+      "expected_output": "The already clear concise heading is retained; the skill does not automatically expand meaningful slogans.",
+      "assertions": [
+        "The order of measurement before modification remains obvious.",
+        "The concise heading is preserved without unneeded exposition.",
+        "No blanket prohibition of aphoristic headlines is applied."
+      ]
+    },
+    {
+      "id": 24,
+      "prompt": "次の短文を誰でも分かるように具体化して。『境界を決めて成果を守る。』。ほかに文脈はありません。",
+      "expected_output": "Identifies that what boundary, what outcome, and what action are unclear without inventing a specific system, policy, or team process.",
+      "assertions": [
+        "It acknowledges that the intended action and targets cannot be uniquely recovered.",
+        "It does not manufacture technical, organizational, or contractual specifics.",
+        "It does not present a second vague catchphrase as a completed clarification."
+      ]
     }
   ]
 }
