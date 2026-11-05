@@ -19,7 +19,7 @@ The goal is not brevity by itself. A short answer can still be hard to act on, a
 2. **Foreground the next relevant action.** When the reader needs to do something, put that action before background explanation. Make it specific enough to execute without inferring an intermediate step.
 3. **Bound multi-step work.** Present the smallest useful set of ordered actions. Keep each visible step focused on one outcome, and do not expose future steps until they help the current decision or action.
 4. **Suppress unrelated branches.** Finish the active path before surfacing secondary issues. Preserve additional findings internally or state them separately only when they materially affect the current task.
-5. **Make progress concrete.** State what now works, changed, or was verified in terms the reader can observe. Prefer evidence such as a passing check, changed behavior, produced artifact, or resolved blocker over generic claims of progress.
+5. **Make progress concrete.** State what now works, changed, or was verified in terms the reader can observe. Cite the check that was run and what it showed. A status such as passed or green, with no command and no observed result, is not evidence. Changed behavior, a produced artifact, or a resolved blocker can also make progress concrete.
 6. **End at the real boundary.** If user action is still required, finish with one concrete next action. If the requested work is complete, stop without inventing another task, recap, or closing pleasantry.
 
 ## State and progress
@@ -62,7 +62,7 @@ When the reader is deciding whether to perform work themselves, describe scope u
 
 This Skill governs presentation of active work.
 
-- Let `simplify-change` decide whether implementation complexity is necessary.
+- Let `simplify-change` decide whether implementation complexity, including a staging construct that remained, is necessary. Do not present a same-context checklist as that review.
 - Let `apply-correction` decide how corrected state is rendered into persistent artifacts.
 - Let writing Skills govern prose quality, language, and long-form structure.
 - Do not override a task that explicitly asks for a complete explanation, reference document, exhaustive list, or other output where immediate action is not the primary purpose.
@@ -73,7 +73,7 @@ Finish when all of the following hold:
 
 - The reader can identify the current state without reconstructing it from prior turns.
 - Any required next action is specific and visible.
-- Completed work is described through observable results rather than generic progress language.
+- Completed work cites the check that was run and what it showed, or states that the behavior is unverified. A status such as passed or green, with no command and no observed result, is not evidence.
 - Secondary issues do not crowd the active path.
 - The presentation constraint has not removed information required for correctness or completeness.
 - The response stops when the requested work is complete.

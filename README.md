@@ -12,7 +12,7 @@
 | [`place-knowledges`](skills/place-knowledges/) | Decide where knowledge from a change belongs before editing artifacts. |
 | [`research-answer`](skills/research-answer/) | Research and synthesize evidence-backed answers to current or contested questions. |
 | [`shape-actionable-output`](skills/shape-actionable-output/) | Present multi-step work and guidance so the next action is clear. |
-| [`simplify-change`](skills/simplify-change/) | Prefer the smallest conventional change that satisfies the requirements. |
+| [`simplify-change`](skills/simplify-change/) | Finish the smallest change the current contract needs, without leftover staging code. |
 | [`test-design`](skills/test-design/) | Design and review tests around observable behavior and important boundaries. |
 | [`write-commit-message`](skills/write-commit-message/) | Draft commit messages that explain a change's purpose and rationale. |
 

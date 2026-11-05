@@ -1,6 +1,6 @@
 ---
 name: diagnose-problem
-description: Use this skill when you need to establish the cause of a failure, regression, anomaly, flaky behavior, or unexpected result. Focus on diagnosis, not implementing the fix.
+description: Use this skill when you need to establish the cause of a failure, regression, anomaly, flaky behavior, or unexpected result, including when no plausible hypothesis exists yet. Focus on diagnosis, not implementing the fix.
 ---
 
 # Diagnose a Problem
@@ -13,7 +13,7 @@ The goal is an evidence-backed causal explanation, not a list of plausible fixes
 
 3. **Reproduce when safe.** Find the smallest faithful check. For intermittent problems, repeat under controlled conditions and vary one factor at a time. If reproduction is not possible, state what the available evidence can and cannot establish.
 
-4. **Test competing explanations.** Keep only plausible hypotheses. For each, identify an observation it predicts; choose the next check for its ability to distinguish explanations, and look for evidence that could disprove the leading one.
+4. **Test competing explanations.** Keep only plausible hypotheses. If none is plausible, do not invent one and do not widen the search: state the observations in hand and one observation they leave unconstrained, gather that observation, and only then form hypotheses. For each hypothesis, identify an observation it predicts; choose the next check for its ability to distinguish explanations, and look for evidence that could disprove the leading one.
 
 5. **Establish the causal mechanism.** Trace the evidence from symptom to trigger to responsible boundary and mechanism. Challenge the strongest alternative. Do not treat correlation or proximity as proof of cause.
 

@@ -1,0 +1,48 @@
+{
+  "skill_name": "simplify-change",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "パーサ移行の実装を完了扱いにして。新しいパーサが本線で、`useNewParser` はロールアウト用に既定 false のまま残し、false のときだけ旧パーサへ落ちる分岐も残っている。公開契約に旧パーサはもうない。自分で差分を見て、戻せるようにフラグは要ると判断済み。",
+      "expected_output": "The finished change removes useNewParser and the old-parser branch. A same-context decision to keep the flag for rollback does not satisfy the leftover review.",
+      "assertions": [
+        "The result removes the useNewParser flag and the branch that falls back to the old parser.",
+        "The result does not keep the flag for hypothetical rollback or because the writing context already approved it.",
+        "The result does not treat a same-context self-review as the required fresh-context review.",
+        "The result does not add a test that the flag is false or absent."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "公開 API の `legacy=1` は現行の契約として残す必要がある。移行用に足した `enableV2` フラグ（既定 false、本番では読まれない）だけは役目が終わっている。この差分を完了形にして。enableV2 を残す理由は会話の中にしかない。",
+      "expected_output": "The legacy=1 path stays because it is a current public contract. enableV2 is removed because no repository-visible requirement needs it.",
+      "assertions": [
+        "The result keeps the legacy=1 compatibility behavior.",
+        "The result removes enableV2 and any branch that exists only to stage the migration.",
+        "The justification for keeping legacy=1 is the current public contract, not the story of how the change was staged.",
+        "The result does not remove the public compatibility path while cleaning up the staging flag."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "このバグ修正は終わった。確認は 'all tests green' のみで、実行したコマンドも出力も記録していない。完了として報告して。",
+      "expected_output": "The response does not treat a green status as verification. It reports the command and observed result, or states that the behavior is unverified.",
+      "assertions": [
+        "The response does not call the behavior verified based only on a status such as green or passed.",
+        "The response either cites the command that was run and the observed result, or explicitly says the behavior is unverified.",
+        "The response does not invent a passing command or output that was not run."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "一行だけ直す。オフバイワンを `end - 1` に変えた。フラグも互換分岐も足していない。不要な抽象化を探し、何か消さないと完了できないという前提で進めて。",
+      "expected_output": "The one-line fix stays a one-line fix. The skill still requires a fresh-context review of the diff being finished and a real check, but it does not invent deletions.",
+      "assertions": [
+        "The result keeps the requested off-by-one correction.",
+        "The result does not invent flags, wrappers, or unrelated deletions to demonstrate simplification.",
+        "The result does not waive the fresh-context leftover review because the change is small.",
+        "The result calls the change complete only if a fresh context has reviewed the finished diff. If that review did not happen, the result says so and does not call the change complete."
+      ]
+    }
+  ]
+}

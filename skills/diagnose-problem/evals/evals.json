@@ -1,0 +1,27 @@
+{
+  "skill_name": "diagnose-problem",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "本番でリクエストが時々 500 になる。ログも再現手順もまだなく、仮説も立っていない。原因を特定して、ありそうな修正もいくつか挙げて。",
+      "expected_output": "The response does not invent a confirmed cause. It states the observations in hand and one observation they leave unconstrained, and it does not widen into an unbounded search or a fix list.",
+      "assertions": [
+        "The response does not present a root cause as confirmed or likely when no supporting observation exists.",
+        "The response states what is already known and one concrete observation that those knowns do not constrain.",
+        "The response does not turn the empty hypothesis into a broad search, a ranked fix list, or several speculative causes.",
+        "The response does not implement a fix."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "失敗は特定のユーザーの保存時だけ起きる。そのユーザーのペイロードには重複した id があり、他のユーザーにはない。重複 id を除くと保存でき、戻すと再び失敗する。原因を述べて。仮説がない前提では探さないで。",
+      "expected_output": "The response treats the duplicate id as a hypothesis already distinguished by the removal check. It does not refuse to conclude and does not start a blind search.",
+      "assertions": [
+        "The response identifies the duplicate id as the supported cause, at least as likely, based on the removal and restoration check.",
+        "The response does not ignore that evidence in order to search for an unknown unknown.",
+        "The response does not claim certainty beyond the reported check.",
+        "The response may state the smallest supported fix and how to verify it, but it does not implement the fix or search for a different cause."
+      ]
+    }
+  ]
+}

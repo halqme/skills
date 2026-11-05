@@ -1,6 +1,6 @@
 ---
 name: test-design
-description: Design, review, modify, or add tests as executable specifications of behavior. Use before touching tests/*, spec/*, *.test.*, or *.spec.* files, and when deciding what a change should verify. Focus on user-visible contracts, invariants, failure boundaries, recovery, and isolation—not implementation trivia. Do not use for implementation or documentation changes that do not alter test strategy.
+description: Design, review, modify, or add tests as executable specifications of behavior. Use before touching tests/*, spec/*, *.test.*, or *.spec.* files, and when deciding what a change should verify. Focus on user-visible contracts, invariants, failure boundaries, recovery, and isolation—not implementation trivia or the value, presence, or absence of transitional flags, branches, or shims. Do not use for implementation or documentation changes that do not alter test strategy.
 ---
 
 # Test Design
@@ -30,6 +30,7 @@ A regression test must reproduce an observable failure and assert the required b
 - Assert an exact value only when that value is itself an independently established external contract, such as a protocol field or a documented default. Exercise the behavior that exposes it rather than asserting the internal declaration.
 - For example, test that an operation times out and recovers as required, not that an internal timeout constant equals today's value. If an exact default timeout is contractual, test its observable effect at the boundary.
 - If a proposed test would fail only because an internal value or representation changed while required behavior stayed correct, omit it. If an existing test does this, remove it or replace it with a behavioral test; do not preserve it merely as regression coverage.
+- Do not assert the value, presence, or absence of a staging flag, legacy branch, compatibility shim, or fallback. Assert the observable behavior required after that construct is gone. If an existing test locks the construct in place, replace it with a behavioral test. If the construct is itself a current external contract, test its observable effect at the boundary rather than its internal declaration.
 
 Before adding a regression test, identify the failing input or state, the observable harm, and the required outcome. If no behavioral failure can be identified, do not add a test just to accompany the change.
 
@@ -74,14 +75,15 @@ A test should answer:
 3. Would it survive an internal rewrite that preserves the contract?
 4. Would it fail when the relevant behavior is broken?
 5. Does it verify failure side effects and recovery where relevant?
+6. Would it still pass if a staging flag, legacy branch, or shim were removed and the required behavior stayed the same? If it would fail, it tests the construct. Replace it.
 
 Do not use test count, coverage, snapshot size, or registration count as quality proxies. More tests do not help if important contracts, failures, recovery, or non-effects remain untested.
 
 ## Verification
 
-1. Run the narrowest relevant tests first, then broaden proportionally.
+1. Run the narrowest relevant tests first, then broaden only for acceptance conditions the run did not exercise. Record the command and the observed result. A green status that did not exercise the claim is not evidence.
 2. Map each acceptance condition to evidence from success, failure, recovery, and non-effect cases.
-3. Challenge the suite with an internal rewrite that should preserve the contract and a targeted break that should fail.
+3. Challenge the suite with an internal rewrite that should preserve the contract, removal of a staging construct that is not part of the contract, and a targeted break that should fail.
 4. Report skipped boundaries, shared state, external dependencies, and nondeterminism.
 
 Do not add tests while the contract or expected result is unclear. If only implementation trivia can be tested, first identify the public boundary or acceptance condition. Replace low-value tests with fewer public-path tests before increasing test count.

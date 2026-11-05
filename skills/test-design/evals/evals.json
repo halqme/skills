@@ -1,0 +1,36 @@
+{
+  "skill_name": "test-design",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "移行の回帰テストを追加して。`useNewParser` が false であること、そして旧パーサ分岐を通らないことを断言したい。本番の契約は、入力が新しいパーサの結果を返すことだけ。",
+      "expected_output": "The test asserts the observable parser result. It does not assert the flag value, the flag's absence, or that the legacy branch is not taken.",
+      "assertions": [
+        "The test asserts the caller-visible result of the new parser.",
+        "The test does not assert that useNewParser is false, true, present, or absent.",
+        "The test does not assert that a legacy branch is not taken.",
+        "The test would still pass if the flag and legacy branch were deleted and the required result stayed the same."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "公開クエリ `legacy=1` は現行契約で、旧形式のレスポンスを返す。この契約のテストを追加して。内部フラグ名や分岐の有無は契約ではない。",
+      "expected_output": "The test exercises the public legacy=1 request and asserts the old response shape at the boundary. It does not lock an internal flag or branch.",
+      "assertions": [
+        "The test sends or otherwise exercises the public legacy=1 contract.",
+        "The test asserts the observable old response behavior.",
+        "The test does not assert the value, presence, or absence of an internal flag or branch."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "既存テストが `expect(config.migrationDone).toBe(false)` だけを見ている。移行は終わっていて、利用者から見える失敗はタイムアウト時に再試行されないことだった。回帰として残すべき形に直して。",
+      "expected_output": "The replacement test asserts that timeout does not retry. It drops the migrationDone assertion rather than inverting it into an absence check.",
+      "assertions": [
+        "The test asserts the observable failure to retry on timeout.",
+        "The test no longer asserts that migrationDone is false.",
+        "The test does not replace that assertion with a check that migrationDone is absent or that a migration branch is untaken."
+      ]
+    }
+  ]
+}
