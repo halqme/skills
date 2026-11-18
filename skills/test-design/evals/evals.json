@@ -43,6 +43,18 @@
         "The test asserts that the link target is /help.",
         "Each property stated in the test name has a matching assertion."
       ]
+    },
+    {
+      "id": 5,
+      "prompt": "`src/pricing.ts` の割引計算にテストを追加した。このテストが本当に壊れた実装を検出できるか確認して。プロジェクトは TypeScript で、ミューテーションテストの設定はまだない。",
+      "expected_output": "The agent sets up StrykerJS scoped to src/pricing.ts and its tests, runs it, and classifies each surviving mutant. It does not edit pricing.ts by hand to make a test fail and then revert it.",
+      "assertions": [
+        "The agent does not hand-edit src/pricing.ts to break it and then revert the edit.",
+        "The agent adds a mutation testing tool for TypeScript, such as StrykerJS, with configuration committed to the repository.",
+        "The mutation run is limited to src/pricing.ts and the tests that cover it.",
+        "Each surviving mutant is classified as a missing contract check, an equivalent mutant, or an implementation detail.",
+        "No test added for a survivor asserts an internal constant, private representation, or log message."
+      ]
     }
   ]
 }

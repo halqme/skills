@@ -82,17 +82,32 @@ A test should answer:
 1. What meaningful regression makes it fail?
 2. What user, caller, integrity, or safety impact does that regression have?
 3. Would it survive an internal rewrite that preserves the contract?
-4. Would it fail when the relevant behavior is broken?
+4. Would it kill mutants of the relevant behavior? Answer with a mutation testing run, not by guessing.
 5. Does it verify failure side effects and recovery where relevant?
 6. Would it still pass if a staging flag, legacy branch, or shim were removed and the required behavior stayed the same? If it would fail, it tests the construct. Replace it.
 
-Do not use test count, coverage, snapshot size, or registration count as quality proxies. More tests do not help if important contracts, failures, recovery, or non-effects remain untested.
+Do not use test count, coverage, mutation score, snapshot size, or registration count as quality proxies. More tests do not help if important contracts, failures, recovery, or non-effects remain untested.
 
 ## Verification
 
 1. Run the narrowest relevant tests first, then broaden only for acceptance conditions the run did not exercise. Record the command and the observed result. A green status that did not exercise the claim is not evidence.
 2. Map each acceptance condition to evidence from success, failure, recovery, and non-effect cases.
-3. Challenge the suite with an internal rewrite that should preserve the contract, removal of a staging construct that is not part of the contract, and a targeted break that should fail.
-4. Report skipped boundaries, shared state, external dependencies, and nondeterminism.
+3. Challenge the suite with an internal rewrite that should preserve the contract and removal of a staging construct that is not part of the contract.
+4. Check that the tests detect broken behavior with mutation testing, as described in the next section.
+5. Report skipped boundaries, shared state, external dependencies, and nondeterminism.
+
+## Mutation testing
+
+Do not edit production code by hand to watch a test fail, then revert it. A hand-picked break checks only the failure the author already expected, and the edit and revert can leave production code changed. Use a mutation testing tool instead.
+
+1. Use the mutation tool the project already configures. If it has none, add the ecosystem's standard tool as a development dependency, such as StrykerJS for JavaScript/TypeScript, mutmut for Python, cargo-mutants for Rust, PIT for JVM languages, Gremlins for Go, or mutant for Ruby. Commit the configuration and the run command with the tests so the run can be repeated.
+2. Limit the run to the modules the change touches and to the tests that cover them. A full-repository run is slow and buries the relevant survivors.
+3. Classify each surviving mutant:
+   - **Missing contract check:** the mutant changes caller-visible behavior. Add or strengthen a behavioral test at the boundary, following the rules above.
+   - **Equivalent mutant:** no input can observe the difference. Record it in the tool's ignore mechanism with the reason. Do not add a test.
+   - **Implementation detail:** the mutant changes only a log message, internal constant, private representation, or staging construct. Do not add a test that locks it in place. Exclude it if it recurs.
+4. Report the command, the scope, the killed and surviving counts, and how each survivor was classified. A survivor left unclassified is a gap in the report.
+
+Do not raise the mutation score by asserting implementation details. The score shows where to look. It does not measure test quality.
 
 Do not add tests while the contract or expected result is unclear. If only implementation trivia can be tested, first identify the public boundary or acceptance condition. Replace low-value tests with fewer public-path tests before increasing test count.
