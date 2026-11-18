@@ -31,6 +31,18 @@
         "The test no longer asserts that migrationDone is false.",
         "The test does not replace that assertion with a check that migrationDone is absent or that a migration branch is untaken."
       ]
+    },
+    {
+      "id": 4,
+      "prompt": "フッターにヘルプページへのリンクを追加した。リンク文言は「ヘルプ」、リンク先は /help。E2E テストを書いて。テスト名は日本語で。",
+      "expected_output": "The test name states an observed fact, such as 「フッターに「ヘルプ」リンクが表示され、そのリンク先は /help である」. The assertions check the visible link text in the footer and its target.",
+      "assertions": [
+        "The test name states where the link is displayed and what its target is, as an observed fact.",
+        "The test name does not use a system-action phrase such as 「〜を出す」 or 「〜を表示する」.",
+        "The test asserts that the link is visible inside the footer with the text 「ヘルプ」.",
+        "The test asserts that the link target is /help.",
+        "Each property stated in the test name has a matching assertion."
+      ]
     }
   ]
 }

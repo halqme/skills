@@ -21,6 +21,15 @@ Treat tests as executable specifications of behavior, not proof that code has a 
    - use unit tests for pure transformations, resolution, or isolated failure-prone logic;
    - do not mock away the state transition under test.
 
+## Phrase tests as observations
+
+Write test names, descriptions, and assertion messages as facts an outside observer can check: what is visible where, and which properties it has. This applies in every language.
+
+- Good: "The footer displays a Help link, and the link points to /help."
+- Bad: "Output a Help link in the footer."
+
+The bad form describes what the system does, not what can be observed. A verb such as "output" or "put" does not say whether the item is displayed, generated, or stored, or how to confirm it. Name the location, the observed item, and each property to verify, such as text, link target, state, or value. Each stated property should map to an assertion, and each assertion to a stated property.
+
 ## Regression tests
 
 A regression test must reproduce an observable failure and assert the required behavior at the relevant boundary. A past bug, changed line, or the label “regression” does not make an implementation detail a contract.
