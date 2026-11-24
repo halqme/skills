@@ -3,7 +3,7 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "新規に研究紹介文を書いてください。LLMがオセロの合法手を出力できるかを評価する研究で、四択条件と自由出力条件を比較します。専門外の大学生が読む研究室紹介ページ向けです。過去の文章や文体見本はありません。",
+      "prompt": "新規に研究紹介文を書いてください。LLMが単位換算の問題に正しく答えられるかを評価する研究で、四択条件と自由出力条件を比較します。専門外の大学生が読む研究室紹介ページ向けです。過去の文章や文体見本はありません。",
       "expected_output": "A clear Japanese research introduction suited to university students, using only the supplied research design without inventing results, personal experiences, or a distinctive author persona.",
       "assertions": [
         "The text explains the four-choice and free-generation conditions in accessible Japanese.",
@@ -123,14 +123,14 @@
     },
     {
       "id": 13,
-      "prompt": "卒論の考察を2〜3文で新規に書いて。実験4でGPT-5.4は外部から与えた方向列に対し128試行すべてで正答。実験3で同モデルのd′は盤面条件0.10、方向列条件2.33。これらだけで盤面から空間関係を抽出できたとはいえない。自然な日本語にして。",
-      "expected_output": "The passage names experiment 4, its 128/128 result, experiment 3, its two d′ values, and the limited conclusion directly. It does not replace observations with 『整合』『改善』 or merge experiments into one unspecified change.",
+      "prompt": "卒論の考察を2〜3文で新規に書いて。実験2でモデルXは外部から与えた手順に対し50試行すべてで正答。実験1で同モデルのd′は図条件0.40、文章条件1.80。これらだけで図から位置関係を読み取れたとはいえない。自然な日本語にして。",
+      "expected_output": "The passage names experiment 2, its 50/50 result, experiment 1, its two d′ values, and the limited conclusion directly. It does not replace observations with 『整合』『改善』 or merge experiments into one unspecified change.",
       "assertions": [
-        "GPT-5.4's 128/128 responses are attributed to experiment 4 with an externally supplied direction sequence.",
-        "Experiment 3's d′=0.10 in the board condition and d′=2.33 in the direction-list condition are explicitly distinguished.",
+        "Model X's 50/50 responses are attributed to experiment 2 with an externally supplied procedure.",
+        "Experiment 1's d′=0.40 in the diagram condition and d′=1.80 in the text condition are explicitly distinguished.",
         "The passage does not refer to both experiments as 「この改善」 or as a single measure.",
         "It does not use 「整合」 in place of the observed result or claim the model itself was consistent with a hypothesis.",
-        "It does not infer the model extracted board spatial relationships or make a stronger causal claim."
+        "It does not infer the model read positional relationships from the diagram or make a stronger causal claim."
       ]
     },
     {
