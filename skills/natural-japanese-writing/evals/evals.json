@@ -172,6 +172,17 @@
         "The text prioritizes these observations over generic words like 『傾向』『改善』『能力の発現』.",
         "The response does not infer internal abilities from correct-answer counts alone."
       ]
+    },
+    {
+      "id": 18,
+      "prompt": "スライドの注記を直して。「モデルBは9問が誤答に変わり、補足の指示に助けられていた。元の実施では補足の指示が単位の取り違えを防いでいた。人が標的のない探索を早く打ち切ることと似ている（Chun & Wolfe, 1996）。」文脈：実験1は同じ60問を、補足の指示ありで1回目、指示なしで2回目に実施した。モデルBは2回目に9問が正答から誤答に変わった。Chun & Wolfe は標的がない試行で「ない」と答えるまでの反応時間が短いことを示した。スライドでは空欄を一貫して「空欄」と呼んでいる。",
+      "expected_output": "A revision that states the observed comparison instead of agentive verbs, names the two runs with identifiers the audience can follow, and paraphrases Chun & Wolfe by the measured response rather than an unobserved process.",
+      "assertions": [
+        "『助けられていた』 is replaced by the observed comparison, e.g. removing the instruction turned 9 items from correct to incorrect.",
+        "『元の実施』 is replaced by an identifier such as 『1つ目の実験』 or 『補足の指示を入れた実験』, with any paired name using the same scheme.",
+        "The Chun & Wolfe sentence describes answering 『ない』 quickly, not 『打ち切る』 or 『回答が停止する』.",
+        "The revision does not add facts beyond the supplied context or strengthen the causal claim."
+      ]
     }
   ]
 }
